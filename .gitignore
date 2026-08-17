@@ -1,0 +1,7 @@
+_site/
+__pycache__/
+*.pyc
+/.wrangler/
+worker/.dev.vars
+worker/.wrangler/
+worker/node_modules/

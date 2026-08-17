@@ -1,0 +1,70 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Refresh Zhiji daily fundamentals
+        env:
+          ZHIJI_API_KEY: ${{ secrets.ZHIJI_API_KEY }}
+        run: python scripts/refresh_zhiji_data.py
+      - name: Refresh Zhiji-first market quotes
+        env:
+          ZHIJI_API_KEY: ${{ secrets.ZHIJI_API_KEY }}
+        run: python scripts/fetch_quotes.py
+      - name: Build technical snapshot (static fallback for /api/technical)
+        continue-on-error: true
+        env:
+          ZHIJI_API_KEY: ${{ secrets.ZHIJI_API_KEY }}
+        run: python scripts/build_technical_snapshot.py
+      - name: Build social snapshot (static fallback for /api/social)
+        continue-on-error: true
+        run: python scripts/build_social_snapshot.py
+      - name: Build policy snapshot (static fallback for /api/policy, incl. Fed RSS)
+        continue-on-error: true
+        run: python scripts/build_policy_snapshot.py
+      - name: Commit snapshots back to repo (keep-last-good source)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add technical.json quotes.json social.json policy.json
+          git diff --cached --quiet || git commit -m "chore: refresh data snapshots [skip ci]"
+          git push
+      - name: Prepare static site
+        run: |
+          mkdir _site
+          cp index.html quotes.json technical.json social.json policy.json site.webmanifest .nojekyll _site/
+          cp -R assets _site/
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: ./_site
+      - name: Deploy Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+      - name: Warm and verify live Worker policy and social feeds
+        continue-on-error: true
+        run: python scripts/check_worker_live.py

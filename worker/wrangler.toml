@@ -1,0 +1,14 @@
+name = 'tin-insight-api'
+main = 'src/index.mjs'
+compatibility_date = '2026-07-20'
+workers_dev = true
+preview_urls = false
+
+[triggers]
+crons = ['*/15 * * * *']
+
+[ai]
+binding = 'AI'
+
+[observability]
+enabled = true
