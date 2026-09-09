@@ -165,21 +165,22 @@ body[data-market-mode] #overview-kpis .kpi:first-child{overflow:visible;border-w
 <tr><td>IPC 北美 PCB</td><td>最新公开精确值不可得</td><td class="num">—</td><td class="num">—</td><td>统计项目面向参与者；<a href="https://www.ipc.org/north-american-pcb-statistical-program" target="_blank">IPC 官方项目</a></td></tr>
 <tr><td>ITA / 永安表观消费</td><td>2026E</td><td class="num">18.1 万吨</td><td class="num">+1.1%</td><td>智能设备偏强，光伏/汽车传统项承压；本地平衡表；ITA 2026Q2 中国精锡消费实际 49.1 千吨（-5.2%）</td></tr><tr><td>ITA 精锡消费·中国（实际）</td><td>2026Q2</td><td class="num">49.1 千吨</td><td class="num">-5.2%</td><td><a href="https://www.internationaltin.org/" target="_blank">ITA 月报数据库 2026年8月</a>；2026Q1 修订为 47.0 千吨；2025 全年 199.8 千吨（-1.9%）</td></tr><tr><td>ITA 全球精锡产量（实际）</td><td>2026Q2</td><td class="num">85.2 千吨</td><td class="num">-9.9%</td><td>ITA 月报数据库 2026年8月；中国 47.9（-2.4%）/ 印尼 5.9（-63.0%）/ 马来 4.6（+45.8%）；2026Q1 修订为 89.7 千吨</td></tr><tr><td>ITA 全球精锡消费（实际）</td><td>2026Q2</td><td class="num">91.9 千吨</td><td class="num">-7.3%</td><td>ITA 月报数据库 2026年8月；中国 49.1（-5.2%）/ 中国以外 42.8（-9.6%）</td></tr><tr><td>ITA 全球供需平衡</td><td>2026Q2</td><td class="num">-6.8 千吨</td><td class="num">—</td><td>ITA 月报数据库 2026年8月；2026Q1 修订为 +1.7 千吨；2025 全年 -8.7 千吨短缺（8月库口径，原6月库 -10.9）</td></tr>
 </tbody></table></div></div>
-<div class="card wide"><h3>2027 年交互式增速预期｜分消费板块情景</h3><div class="meta">拖动各板块 2027E 增速滑块（±20%，与数字框双向同步），实时汇总 2027E 总需求与供需平衡；基准情景=永安锡供需看板（2026-08）：需求 40.40 万吨 / 供给 38.78 万吨 / 平衡 -1.62 万吨</div><div class="table-wrap"><table><thead><tr><th>消费板块</th><th class="num">2026E 基数（万吨）</th><th style="min-width:280px">2027E 增速（滑块 ±20%）</th><th class="num">2027E 耗锡（万吨）</th></tr></thead><tbody id="dem27-body"></tbody></table></div><div class="kpis" id="dem27-kpis"><div class="kpi"><span class="label">2027E 总需求</span><strong id="dem27-total">—</strong></div><div class="kpi"><span class="label">总需求同比</span><strong id="dem27-yoy">—</strong></div><div class="kpi"><span class="label">供需平衡（供给 38.78 − 需求）</span><strong id="dem27-balance" style="font-size:21px">—</strong></div><div class="kpi"><span class="label">相对基准情景变化（需求 40.40 / 平衡 -1.62）</span><strong id="dem27-delta" style="font-size:17px">—</strong></div></div><div style="margin-top:12px;display:flex;gap:12px;align-items:center"><button id="dem27-reset" type="button">重置为看板基准增速</button><span class="small">短缺=红 / 过剩=绿</span></div><div class="callout" style="margin-top:14px">2026E 基数与各板块默认增速来源：永安锡供需看板（2026-08）3.3 节消费板块耗锡拆解表（「其他」含 AI 服务器与数据中心、镀锡板包装、铅酸电池维护与传统工业、锡合金轴承与镀层、维修与分散终端五项）；2027E 精炼锡供给 38.78 万吨取自看板年度总表。滑块是情景敏感性工具，不是预测。</div></div>
+<div class="card wide"><h3>2027 年交互式增速预期｜中国消费板块情景（基准：锡平衡表新 2026-08）</h3><div class="meta">拖动各板块 2027E 增速滑块（±20%，与数字框双向同步），实时汇总中国终端合计、全球需求与供需平衡；基准=锡平衡表新.xlsx（2026-08）：2027E 全球供给 36.40 / 需求 35.77 / 平衡 +0.63 万吨；中国需求 18.38 万吨</div><div class="table-wrap"><table><thead><tr><th>消费板块（中国表观消费拟合）</th><th class="num">2026E 基数（万吨）</th><th style="min-width:280px">2027E 增速（滑块 ±20%）</th><th class="num">2027E 耗锡（万吨）</th></tr></thead><tbody id="dem27-body"></tbody></table></div><div class="kpis" id="dem27-kpis"><div class="kpi"><span class="label">中国终端合计（基准 18.38）</span><strong id="dem27-cn">—</strong><small id="dem27-cn-d"></small></div><div class="kpi"><span class="label">全球需求 2027E（基准 35.77）</span><strong id="dem27-gd">—</strong><small id="dem27-gd-d"></small></div><div class="kpi"><span class="label">供需平衡（基准 +0.63）</span><strong id="dem27-bal" style="font-size:21px">—</strong><small id="dem27-bal-d"></small></div></div><div style="margin-top:12px;display:flex;gap:12px;align-items:center"><button id="dem27-reset" type="button">重置为基准增速（2026E 同比）</button><span class="small">短缺=红 / 过剩=绿</span></div><div class="callout" style="margin-top:14px">板块基数=锡平衡表新.xlsx（2026-08）中国表观消费拟合的消费板块拆解（该 Excel 仅拆解中国口径）；默认增速=各板块 2026E 同比，焊锡其他/其他两项无同比默认 0%。全球需求按「中国增量同额传导」的简化假设推算（全球需求 2027E = 35.77 + 中国合计 − 18.38）。滑块是情景敏感性工具，不是预测。</div></div>
 <script>
 (function(){
-const SUPPLY27=38.78,BASE_D27=40.40,BASE_B27=-1.62;
+const SUPPLY27=36.40,BASE_GD27=35.77,BASE_CN27=18.38,BASE_BAL27=0.63;
 const SECTORS=[
- {name:'消费电子焊料',base:12.784,g:1.6},
- {name:'家电焊料',base:1.820,g:1.1},
- {name:'汽车电子',base:2.897,g:7.7},
- {name:'光伏焊带',base:3.110,g:0.0},
- {name:'PVC 稳定剂与化工',base:1.740,g:1.8},
- {name:'工业焊料与线束连接',base:5.400,g:0.0},
- {name:'其他（AI服务器/镀锡板/铅酸电池/锡合金/维修）',base:11.853,g:2.7}
+ {name:'智能设备',base:4.75,g:16.4},
+ {name:'家电',base:1.82,g:-1.9},
+ {name:'汽车',base:2.59,g:-3.4},
+ {name:'光伏焊料',base:2.61,g:-16.1},
+ {name:'焊锡其他',base:0.74,g:0.0},
+ {name:'锡化工',base:1.74,g:1.8},
+ {name:'镀锡板',base:1.85,g:-2.1},
+ {name:'铅酸蓄电池',base:1.54,g:-0.6},
+ {name:'其他',base:0.59,g:0.0}
 ];
 const body=document.getElementById('dem27-body');if(!body)return;
-const BASE_SUM=SECTORS.reduce((a,s)=>a+s.base,0);
 const rows=SECTORS.map((s,i)=>{
  const tr=document.createElement('tr');
  tr.innerHTML='<td>'+s.name+'</td><td class="num">'+s.base.toFixed(2)+'</td>'+
@@ -193,16 +194,18 @@ const rows=SECTORS.map((s,i)=>{
 });
 function sgn(x){x=Math.round(x*100)/100;return (x>=0?'+':'')+x.toFixed(2);}
 function calc(){
- let total=0;
- rows.forEach(row=>{const g=parseFloat(row.r.value)||0;const v=row.s.base*(1+g/100);total+=v;row.out.textContent=v.toFixed(2);});
- const yoy=(total/BASE_SUM-1)*100;
- const bal=SUPPLY27-total;
- document.getElementById('dem27-total').textContent=total.toFixed(2)+' 万吨';
- document.getElementById('dem27-yoy').textContent=(yoy>=0?'+':'')+yoy.toFixed(1)+'%';
- const bEl=document.getElementById('dem27-balance');
+ let cn=0;
+ rows.forEach(row=>{const g=parseFloat(row.r.value)||0;const v=row.s.base*(1+g/100);cn+=v;row.out.textContent=v.toFixed(2);});
+ const gd=BASE_GD27+(cn-BASE_CN27);
+ const bal=SUPPLY27-gd;
+ document.getElementById('dem27-cn').textContent=cn.toFixed(2)+' 万吨';
+ document.getElementById('dem27-cn-d').textContent='较基准 '+sgn(cn-BASE_CN27)+' 万吨';
+ document.getElementById('dem27-gd').textContent=gd.toFixed(2)+' 万吨';
+ document.getElementById('dem27-gd-d').textContent='较基准 '+sgn(gd-BASE_GD27)+' 万吨';
+ const bEl=document.getElementById('dem27-bal');
  bEl.textContent=sgn(bal)+' 万吨（'+(bal>=0?'过剩':'短缺')+'）';
  bEl.style.color=bal>=0?'var(--mint)':'var(--red)';
- document.getElementById('dem27-delta').textContent='需求 '+sgn(total-BASE_D27)+' / 平衡 '+sgn(bal-BASE_B27)+' 万吨';
+ document.getElementById('dem27-bal-d').textContent='较基准 '+sgn(bal-BASE_BAL27)+' 万吨';
 }
 document.getElementById('dem27-reset').addEventListener('click',()=>{rows.forEach(row=>{row.r.value=row.s.g;const n=document.getElementById(row.r.id.replace('-r','-n'));n.value=row.s.g;});calc();});
 calc();
