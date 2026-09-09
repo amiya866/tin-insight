@@ -85,6 +85,11 @@ body[data-market-mode="crash"]{--bg:#0b0e14;--panel:#0e1519;--panel2:#111c1e;--l
 body[data-market-mode] #overview-kpis .kpi:first-child{overflow:visible;border-width:2px}body[data-market-mode="surge"] #overview-kpis .kpi:first-child{border-color:#ff007f;box-shadow:0 0 24px rgba(255,0,127,.22),inset 0 0 22px rgba(0,240,255,.06)}body[data-market-mode="crash"] #overview-kpis .kpi:first-child{border-color:#00ff99;box-shadow:0 0 24px rgba(0,255,153,.2),inset 0 0 22px rgba(0,255,153,.06)}.market-extreme-price{font-weight:900!important;transform-origin:left center;animation:market-price-jump .72s cubic-bezier(.25,.85,.3,1) infinite}.market-preview-flag{display:none}body[data-market-preview="true"] .market-preview-flag{display:inline}
 @keyframes market-price-jump{0%,100%{transform:translateY(0) scale(1)}42%{transform:translateY(-5px) scale(1.075)}58%{transform:translateY(-2px) scale(1.035)}}@keyframes market-dot{0%,100%{opacity:.35;transform:scale(.8)}50%{opacity:1;transform:scale(1.25)}}
 @media(max-width:700px){.market-hud--surge,.market-hud--crash{padding:14px}.market-hud--surge .market-hud-status{right:14px;bottom:12px}.rhine-quote{display:none}.rhine-detector{left:14px;top:auto;bottom:55px}.rhine-footer{left:14px;right:14px;bottom:10px}.rhine-footer span:first-child{display:none}}@media(prefers-reduced-motion:reduce){.market-extreme-price,.rhine-detector-head i{animation:none}}
+.dem27-ctl{display:flex;gap:8px;align-items:center;min-width:260px}
+.dem27-ctl input[type=range]{flex:1;min-width:0}
+.dem27-ctl input[type=number]{width:66px;background:var(--panel2);border:1px solid var(--line);color:var(--text);border-radius:8px;padding:5px 6px;font-variant-numeric:tabular-nums}
+#dem27-reset{border:1px solid #315269;border-radius:10px;padding:8px 16px;color:var(--muted);font:600 12px inherit;letter-spacing:0}
+#dem27-reset:hover{color:var(--mint);border-color:#267363}
 </style>
 </head>
 <body class="site-locked" data-theme="dark-journal">
@@ -158,8 +163,51 @@ body[data-market-mode] #overview-kpis .kpi:first-child{overflow:visible;border-w
 <tr><td>TSMC</td><td>2026-05</td><td class="num">NT$416.975bn</td><td class="num">+30.1%</td><td>AI/HPC 链条仍强；<a href="https://pr.tsmc.com/chinese/news/3320" target="_blank">公司月营收</a></td></tr>
 <tr><td>臻鼎科技</td><td>2026-06</td><td class="num">NT$17.033bn</td><td class="num">+32.83%</td><td>PCB 高端化信号；<a href="https://www.zdtco.com/upload/2026_07_062/20260706101703v8qx4aJi31.pdf" target="_blank">公司月报 PDF</a></td></tr>
 <tr><td>IPC 北美 PCB</td><td>最新公开精确值不可得</td><td class="num">—</td><td class="num">—</td><td>统计项目面向参与者；<a href="https://www.ipc.org/north-american-pcb-statistical-program" target="_blank">IPC 官方项目</a></td></tr>
-<tr><td>ITA / 永安表观消费</td><td>2026E</td><td class="num">18.1 万吨</td><td class="num">+1.1%</td><td>智能设备偏强，光伏/汽车传统项承压；本地平衡表；ITA 2026Q1 中国精锡消费实际 45.0 千吨（-7.5%）</td></tr><tr><td>ITA 精锡消费·中国（实际）</td><td>2026Q1</td><td class="num">45.0 千吨</td><td class="num">-7.5%</td><td><a href="https://www.internationaltin.org/" target="_blank">ITA 月报数据库 2026年6月</a>；2025 全年 199.8 千吨（-1.9%）</td></tr><tr><td>ITA 全球精锡产量（实际）</td><td>2026Q1</td><td class="num">86.5 千吨</td><td class="num">-5.1%</td><td>ITA 月报数据库 2026年6月；中国 43.6（-8.6%）/ 印尼 11.7（-2.8%）/ 马来 3.5（-2.5%）</td></tr><tr><td>ITA 全球供需平衡</td><td>2026Q1</td><td class="num">-0.2 千吨</td><td class="num">—</td><td>ITA 月报数据库 2026年6月；2025 全年 -10.9 千吨短缺，2026Q1 接近平衡</td></tr>
+<tr><td>ITA / 永安表观消费</td><td>2026E</td><td class="num">18.1 万吨</td><td class="num">+1.1%</td><td>智能设备偏强，光伏/汽车传统项承压；本地平衡表；ITA 2026Q2 中国精锡消费实际 49.1 千吨（-5.2%）</td></tr><tr><td>ITA 精锡消费·中国（实际）</td><td>2026Q2</td><td class="num">49.1 千吨</td><td class="num">-5.2%</td><td><a href="https://www.internationaltin.org/" target="_blank">ITA 月报数据库 2026年8月</a>；2026Q1 修订为 47.0 千吨；2025 全年 199.8 千吨（-1.9%）</td></tr><tr><td>ITA 全球精锡产量（实际）</td><td>2026Q2</td><td class="num">85.2 千吨</td><td class="num">-9.9%</td><td>ITA 月报数据库 2026年8月；中国 47.9（-2.4%）/ 印尼 5.9（-63.0%）/ 马来 4.6（+45.8%）；2026Q1 修订为 89.7 千吨</td></tr><tr><td>ITA 全球精锡消费（实际）</td><td>2026Q2</td><td class="num">91.9 千吨</td><td class="num">-7.3%</td><td>ITA 月报数据库 2026年8月；中国 49.1（-5.2%）/ 中国以外 42.8（-9.6%）</td></tr><tr><td>ITA 全球供需平衡</td><td>2026Q2</td><td class="num">-6.8 千吨</td><td class="num">—</td><td>ITA 月报数据库 2026年8月；2026Q1 修订为 +1.7 千吨；2025 全年 -8.7 千吨短缺（8月库口径，原6月库 -10.9）</td></tr>
 </tbody></table></div></div>
+<div class="card wide"><h3>2027 年交互式增速预期｜分消费板块情景</h3><div class="meta">拖动各板块 2027E 增速滑块（±20%，与数字框双向同步），实时汇总 2027E 总需求与供需平衡；基准情景=永安锡供需看板（2026-08）：需求 40.40 万吨 / 供给 38.78 万吨 / 平衡 -1.62 万吨</div><div class="table-wrap"><table><thead><tr><th>消费板块</th><th class="num">2026E 基数（万吨）</th><th style="min-width:280px">2027E 增速（滑块 ±20%）</th><th class="num">2027E 耗锡（万吨）</th></tr></thead><tbody id="dem27-body"></tbody></table></div><div class="kpis" id="dem27-kpis"><div class="kpi"><span class="label">2027E 总需求</span><strong id="dem27-total">—</strong></div><div class="kpi"><span class="label">总需求同比</span><strong id="dem27-yoy">—</strong></div><div class="kpi"><span class="label">供需平衡（供给 38.78 − 需求）</span><strong id="dem27-balance" style="font-size:21px">—</strong></div><div class="kpi"><span class="label">相对基准情景变化（需求 40.40 / 平衡 -1.62）</span><strong id="dem27-delta" style="font-size:17px">—</strong></div></div><div style="margin-top:12px;display:flex;gap:12px;align-items:center"><button id="dem27-reset" type="button">重置为看板基准增速</button><span class="small">短缺=红 / 过剩=绿</span></div><div class="callout" style="margin-top:14px">2026E 基数与各板块默认增速来源：永安锡供需看板（2026-08）3.3 节消费板块耗锡拆解表（「其他」含 AI 服务器与数据中心、镀锡板包装、铅酸电池维护与传统工业、锡合金轴承与镀层、维修与分散终端五项）；2027E 精炼锡供给 38.78 万吨取自看板年度总表。滑块是情景敏感性工具，不是预测。</div></div>
+<script>
+(function(){
+const SUPPLY27=38.78,BASE_D27=40.40,BASE_B27=-1.62;
+const SECTORS=[
+ {name:'消费电子焊料',base:12.784,g:1.6},
+ {name:'家电焊料',base:1.820,g:1.1},
+ {name:'汽车电子',base:2.897,g:7.7},
+ {name:'光伏焊带',base:3.110,g:0.0},
+ {name:'PVC 稳定剂与化工',base:1.740,g:1.8},
+ {name:'工业焊料与线束连接',base:5.400,g:0.0},
+ {name:'其他（AI服务器/镀锡板/铅酸电池/锡合金/维修）',base:11.853,g:2.7}
+];
+const body=document.getElementById('dem27-body');if(!body)return;
+const BASE_SUM=SECTORS.reduce((a,s)=>a+s.base,0);
+const rows=SECTORS.map((s,i)=>{
+ const tr=document.createElement('tr');
+ tr.innerHTML='<td>'+s.name+'</td><td class="num">'+s.base.toFixed(2)+'</td>'+
+  '<td><div class="dem27-ctl"><input type="range" id="dem27-r'+i+'" min="-20" max="20" step="0.1" value="'+s.g+'"><input type="number" id="dem27-n'+i+'" min="-20" max="20" step="0.1" value="'+s.g+'"><span class="small">%</span></div></td>'+
+  '<td class="num" id="dem27-o'+i+'">—</td>';
+ body.appendChild(tr);
+ const r=tr.querySelector('#dem27-r'+i),n=tr.querySelector('#dem27-n'+i);
+ r.addEventListener('input',()=>{n.value=r.value;calc();});
+ n.addEventListener('change',()=>{let v=parseFloat(n.value);if(isNaN(v))v=0;v=Math.max(-20,Math.min(20,v));v=Math.round(v*10)/10;n.value=v;r.value=v;calc();});
+ return {r,out:tr.querySelector('#dem27-o'+i),s};
+});
+function sgn(x){x=Math.round(x*100)/100;return (x>=0?'+':'')+x.toFixed(2);}
+function calc(){
+ let total=0;
+ rows.forEach(row=>{const g=parseFloat(row.r.value)||0;const v=row.s.base*(1+g/100);total+=v;row.out.textContent=v.toFixed(2);});
+ const yoy=(total/BASE_SUM-1)*100;
+ const bal=SUPPLY27-total;
+ document.getElementById('dem27-total').textContent=total.toFixed(2)+' 万吨';
+ document.getElementById('dem27-yoy').textContent=(yoy>=0?'+':'')+yoy.toFixed(1)+'%';
+ const bEl=document.getElementById('dem27-balance');
+ bEl.textContent=sgn(bal)+' 万吨（'+(bal>=0?'过剩':'短缺')+'）';
+ bEl.style.color=bal>=0?'var(--mint)':'var(--red)';
+ document.getElementById('dem27-delta').textContent='需求 '+sgn(total-BASE_D27)+' / 平衡 '+sgn(bal-BASE_B27)+' 万吨';
+}
+document.getElementById('dem27-reset').addEventListener('click',()=>{rows.forEach(row=>{row.r.value=row.s.g;const n=document.getElementById(row.r.id.replace('-r','-n'));n.value=row.s.g;});calc();});
+calc();
+})();
+</script>
 </div></section>
 
 <section class="section" id="inventory"><div class="section-head"><div><h2>库存</h2><p>交易所、社会库存与 LME 地区分布</p></div></div><div class="grid">
@@ -198,7 +246,10 @@ body[data-market-mode] #overview-kpis .kpi:first-child{overflow:visible;border-w
 <div class="card wide"><h3>成本样本来源与口径</h3><div class="table-wrap"><table><thead><tr><th>生产商 / 矿山</th><th>期间</th><th>指标</th><th class="num">折美元/吨锡</th><th class="num">产量参考</th><th>原始披露</th><th>来源</th></tr></thead><tbody id="cost-source-body"></tbody></table></div></div>
 </div></section>
 
-<section class="section" id="policy"><div class="section-head"><div><h2>政策与事件</h2><p>仅展示近45天、直接影响锡供需或宏观定价的中文事件</p></div><span class="tag ok" id="policy-live-status">近期中文事件 7 条</span></div><div class="news-grid policy-grid" id="policy-grid">
+<section class="section" id="policy"><div class="section-head"><div><h2>政策与事件</h2><p>仅展示近45天、直接影响锡供需或宏观定价的中文事件</p></div><span class="tag ok" id="policy-live-status">近期中文事件 10 条</span></div><div class="news-grid policy-grid" id="policy-grid">
+<article class="news"><span class="news-category">国内锡供应</span><div class="date">2026-08-28</div><h3>兴业银锡半年报确认银漫仍全面停产，H1归母净利预增169-198%</h3><p>兴业银锡2026半年报（8/28）确认：7/26事故后银漫矿业采矿系统、选矿尾矿系统均停产，复产须经事故调查与安监验收、时间未定；H1归母净利预增169%-198%，由宇邦矿业产能释放与银锡价格上涨对冲。按2025年月均约557吨（26Q1月均259吨）计，全面停产每月矿产锡约-260~560吨。</p><span class="news-source">兴业银锡2026年半年度报告</span><a href="https://money.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?stockid=000426&id=12570967" target="_blank">查看原文 →</a></article>
+<article class="news"><span class="news-category">国内锡供应</span><div class="date">2026-08-20</div><h3>锡业股份半年报：H1锡产量5.18万吨，营收同比+49.68%</h3><p>云南锡业2026半年报（8/20披露）：H1有色金属总产量19.34万吨，其中锡5.18万吨、铜6.92万吨、锌7.23万吨；分季度看锡Q1约2.59万吨、Q2约2.59万吨环比持平——高锡价下以量稳兑现业绩弹性。</p><span class="news-source">锡业股份2026年半年度报告</span><a href="https://www.sohu.com/a/1068502079_122014422" target="_blank">查看原文 →</a></article>
+<article class="news"><span class="news-category">行情与矿端</span><div class="date">2026-08-06</div><h3>LME锡站上57,000美元领涨金属，佤邦复产慢于预期、矿端偏紧延续</h3><p>佤邦月度产能仅恢复禁矿前40-50%，全面复产推迟至2027，6月自缅甸进口锡精矿仅6,393实物吨；LME锡8/6站上57,000美元领涨伦敦基本金属，云南40%加工费18,000元维持低位。库存低位（LME 5,850-6,330吨/上期所5,286吨），但8月中旬三地社库连续两周回升。</p><span class="news-source">长江有色 / 上海有色网 / SMM</span><a href="https://sn.ccmn.cn/news/ZX018/202608/" target="_blank">查看原文 →</a></article>
 <article class="news"><span class="news-category">秘鲁锡供应</span><div class="date">2026-08-05</div><h3>Minsur二季度精锡产量保持平稳，检修导致环比回落</h3><p>Minsur二季度精锡产量为7,000吨，同比仅下降0.5%，但受检修影响环比下降15.4%；供应没有失速，季度环比回落主要是计划性检修。</p><span class="news-source">国际锡业协会</span><a href="https://www.internationaltin.org/minsur-invests-in-the-future-as-q2-output-holds-steady/" target="_blank">查看原文 →</a></article>
 <article class="news"><span class="news-category">国内锡供应</span><div class="date">2026-07-31</div><h3>银漫矿业采选系统全面停产，复产时间仍未确定</h3><p>银漫矿业在井下事故后先停采，7月30日选矿和尾矿系统同步停产；复产需完成事故调查及安监验收，持续时间尚不确定。</p><span class="news-source">兴业银锡公告</span><a href="http://www.cninfo.com.cn/new/disclosure/stock?stockCode=000426" target="_blank">查看原文 →</a></article>
 <article class="news"><span class="news-category">宏观政策</span><div class="date">2026-07-29</div><h3>美联储7月议息会议维持目标利率区间不变</h3><p>美联储公开市场委员会以9比3通过声明，维持目标利率区间不变。该项只作为美元与风险偏好的宏观背景，不替代锡自身供需判断。</p><span class="news-source">美联储</span><a href="https://www.federalreserve.gov/newsevents/pressreleases/monetary20260729a.htm" target="_blank">查看原文 →</a></article>
